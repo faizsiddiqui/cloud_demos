@@ -1,0 +1,3 @@
+kubernetes/terraform/creds/*
+kubernetes/terraform/.terraform/*
+**/*terraform.tfstate*

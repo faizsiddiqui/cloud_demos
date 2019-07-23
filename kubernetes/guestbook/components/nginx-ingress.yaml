@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: guestbook-nginx
+  namespace: production
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: guestbook.example.io
+    http:
+      paths:
+        - path: /*
+          backend:
+            serviceName: frontend
+            servicePort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: guestbook-nginx
+  namespace: staging
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: staging-guestbook.example.io
+    http:
+      paths:
+        - path: /*
+          backend:
+            serviceName: frontend
+            servicePort: 80
