@@ -2,6 +2,14 @@
 ---
 #### - Build K8x Cluster
 
+* Populate GCP Service Account Credentials (Roles : Kubernetes Engine Admin, Compute Admin, Service Account User) --
+
+```
+mkdir -p kubernetes/terraform/creds/ && touch $_/account.json
+```
+
+* Build Cluster with Terraform
+
 ```
 bash kubernetes/k8s-cluster.sh build
 ```
@@ -12,7 +20,8 @@ bash kubernetes/k8s-cluster.sh build
 bash kubernetes/guestbook-app.sh build
 ```
 
-Add DNS
+* Add DNS
+
 ```
 ~ $ sudo cat /etc/hosts | grep example
 <public_ip> staging-guestbook.example.io
